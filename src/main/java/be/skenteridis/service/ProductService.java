@@ -11,7 +11,7 @@ public class ProductService {
     public ProductService() {
         this.products = JsonUtil.load(new TypeToken<List<Product>>() {}.getType());
         // Avoid duplicate IDs!
-        if(!products.isEmpty()) Product.setProductAmount(this.products.size());
+        if(!products.isEmpty()) Product.setProductAmount(this.products.getLast().getId());
     }
     public void addProduct(Product product) {
         products.add(product);
